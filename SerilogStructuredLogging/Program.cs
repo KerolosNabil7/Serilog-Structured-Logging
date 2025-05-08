@@ -49,6 +49,9 @@ try
 
     app.MapControllers();
 
+    // Enable Serilog's built-in middleware to automatically log HTTP requests, including method, path, status code, and execution time
+    app.UseSerilogRequestLogging();
+
     app.MapGet("/", (IDummyService svc) => svc.DoSomething());
 
     app.Run();
