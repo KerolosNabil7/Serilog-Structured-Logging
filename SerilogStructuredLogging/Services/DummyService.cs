@@ -11,6 +11,7 @@
         {
             _logger.LogInformation("somethimg is done");
             _logger.LogCritical("oops");
+            //the debug will be skipped because the minimum log level is inforamtion in appsetting.json file
             _logger.LogDebug("nothing much");
         }
     }
