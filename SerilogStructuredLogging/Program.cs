@@ -15,6 +15,18 @@ try
 
     // Add services to the container.
 
+    //Register the serilog logger service in DI Container
+    builder.Host.UseSerilog((context, loggerConfiguration) =>
+    {
+        // Write logs to the console (standard output)
+        loggerConfiguration.WriteTo.Console();
+
+        // Read additional Serilog settings (like minimum level, sinks, etc.) from appsettings.json or appsettings.{Environment}.json
+        loggerConfiguration.ReadFrom.Configuration(context.Configuration);
+    });
+
+
+
     builder.Services.AddControllers();
     // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
     builder.Services.AddEndpointsApiExplorer();
