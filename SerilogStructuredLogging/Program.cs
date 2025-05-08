@@ -49,6 +49,8 @@ try
 
     app.MapControllers();
 
+    app.MapGet("/", (IDummyService svc) => svc.DoSomething());
+
     app.Run();
 }
 catch(Exception ex)
