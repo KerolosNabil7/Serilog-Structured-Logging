@@ -1,4 +1,5 @@
 using Serilog;
+using SerilogStructuredLogging.Services;
 
 // Configure the global logger instance
 Log.Logger = new LoggerConfiguration()
@@ -25,7 +26,8 @@ try
         loggerConfiguration.ReadFrom.Configuration(context.Configuration);
     });
 
-
+    //Register the DummyService
+    builder.Services.AddTransient<IDummyService, DummyService>();
 
     builder.Services.AddControllers();
     // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
